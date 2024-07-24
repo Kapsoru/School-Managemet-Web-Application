@@ -69,7 +69,7 @@ We welcome contributions to enhance the School Management Web Application. If yo
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is Free of charge
 
 ## Contact
 
