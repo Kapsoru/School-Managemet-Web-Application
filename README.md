@@ -14,7 +14,6 @@ The School Management Web Application provides a comprehensive platform for mana
 - **Attendance Tracking**: Record and monitor student and teacher attendance with ease.
 - **Grading System**: Manage and track student grades, generate report cards, and provide academic performance insights.
 - **Parent Portal**: Provide parents with access to their child's academic progress and school activities.
-- **Notifications and Announcements**: Send important updates and announcements to students, teachers, and parents.
 - **User Authentication and Authorization**: Secure login and role-based access control for different user types (admin, teacher, student, parent).
 
 ## Technologies Used
