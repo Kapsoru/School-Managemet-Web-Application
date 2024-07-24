@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Prescolaire.Models.Subject>
+
+@{
+    ViewData["Title"] = "Subjects List";
+}
+
+<p>
+    <a asp-action="Create">Add New Subject</a>
+</p>
+<div class="card-body">
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubjectId)
+                </th>
+                <th>Subject Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubjectId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubjectName)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.SubjectId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.SubjectId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.SubjectId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

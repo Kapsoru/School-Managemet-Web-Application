@@ -1,0 +1,42 @@
+﻿@model Prescolaire.Models.Student
+
+@{
+    ViewData["Title"] = "My Profile";
+    Layout = "_LayoutParent";
+}
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h2>My Profile</h2>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">First Name</dt>
+                <dd class="col-sm-9">@Model.FirstName</dd>
+                <dt class="col-sm-3">Last Name</dt>
+                <dd class="col-sm-9">@Model.LastName</dd>
+                <dt class="col-sm-3">Gender</dt>
+                <dd class="col-sm-9">@Model.Gender</dd>
+                <dt class="col-sm-3">Date of Birth</dt>
+                <dd class="col-sm-9">@Model.DateOfBirth.ToShortDateString()</dd>
+                <dt class="col-sm-3">Street</dt>
+                <dd class="col-sm-9">@Model.Street</dd>
+                <dt class="col-sm-3">City</dt>
+                <dd class="col-sm-9">@Model.City</dd>
+                <dt class="col-sm-3">Region</dt>
+                <dd class="col-sm-9">@Model.Region</dd>
+                <dt class="col-sm-3">Country</dt>
+                <dd class="col-sm-9">@Model.Country</dd>
+                <dt class="col-sm-3">Postal Code</dt>
+                <dd class="col-sm-9">@Model.PostalCode</dd>
+                <dt class="col-sm-3">Parent Name</dt>
+                <dd class="col-sm-9">@Model.ParentName</dd>
+                <dt class="col-sm-3">Phone Number</dt>
+                <dd class="col-sm-9">@Model.PhoneNumber</dd>
+                <dt class="col-sm-3">Email</dt>
+                <dd class="col-sm-9">@Model.Email</dd>
+            </dl>
+        </div>
+    </div>
+</div>

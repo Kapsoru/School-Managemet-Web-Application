@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Prescolaire.Models.StudentGrade>
+
+@{
+    ViewData["Title"] = "Grades";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Affect Student To Grade</a>
+</p>
+<div class="card-body">
+<table id="example1" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Grade)
+            </th>
+            <th>
+               Student Id
+            </th>
+            <th>
+                Student First Name
+            </th>
+            <th>
+                Student Last Name
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade.GradeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.StudentId)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.LastName)
+                </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StudentGradeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StudentGradeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StudentGradeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

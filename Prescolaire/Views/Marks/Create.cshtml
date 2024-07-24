@@ -1,0 +1,69 @@
+﻿@model Prescolaire.Models.Mark
+
+@{
+    ViewData["Title"] = "Adding Marks";
+}
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StudentId" class="control-label"></label>
+                <select asp-for="StudentId" class="form-control" asp-items="ViewBag.StudentId"></select>
+                <span asp-validation-for="StudentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubjectId" class="control-label"></label>
+                <select asp-for="SubjectId" class="form-control" asp-items="ViewBag.SubjectId"></select>
+                <span asp-validation-for="SubjectId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SchoolYearId" class="control-label"></label>
+                <select asp-for="SchoolYearId" class="form-control" asp-items="ViewBag.SchoolYearId"></select>
+                <span asp-validation-for="SchoolYearId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mark1" class="control-label"></label>
+                <input asp-for="Mark1" class="form-control" />
+                <span asp-validation-for="Mark1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mark2" class="control-label"></label>
+                <input asp-for="Mark2" class="form-control" />
+                <span asp-validation-for="Mark2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+
+        <form asp-action="GenerateMarks" method="post">
+            <div class="form-group">
+                <label for="SchoolYearId">School Year</label>
+                <select id="SchoolYearId" name="schoolYearId" class="form-control">
+                    @foreach (var schoolYear in ViewBag.SchoolYearId as SelectList)
+                    {
+                        <option value="@schoolYear.Value">@schoolYear.Text</option>
+                    }
+                </select>
+                <span asp-validation-for="SchoolYearId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Generate Marks for Selected School Year" class="btn btn-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

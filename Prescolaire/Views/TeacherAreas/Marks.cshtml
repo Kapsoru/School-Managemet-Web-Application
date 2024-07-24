@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Prescolaire.Models.Mark>
+
+@{
+    ViewData["Title"] = "Marks";
+    Layout = "_LayoutTeacher";
+}
+
+<h2>Marks</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>School Year</th>
+            <th>Mark 1</th>
+            <th>Mark 2</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Student.FirstName @item.Student.LastName</td>
+                <td>@item.SchoolYear.Year</td>
+                <td>@item.Mark1</td>
+                <td>@item.Mark2</td>
+                <td>
+                    <a asp-action="EditMark" asp-route-id="@item.MarkId" class="btn btn-sm btn-warning">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

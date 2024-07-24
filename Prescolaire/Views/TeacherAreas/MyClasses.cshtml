@@ -1,0 +1,27 @@
+﻿@using Prescolaire.Models
+@model IEnumerable<Prescolaire.Models.TeacherClass>
+
+@{
+    ViewData["Title"] = "My Classes";
+    Layout = "_LayoutTeacher";
+}
+
+<h2>My Classes</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Class Name</th>
+            <th>Capacity</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Class.ClassName</td>
+                <td>@item.Class.Capacity</td>
+            </tr>
+        }
+    </tbody>
+</table>

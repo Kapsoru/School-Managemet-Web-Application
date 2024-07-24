@@ -1,0 +1,71 @@
+﻿@using Prescolaire.ViewModel
+@model MarkFilterViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<form id="filterForm">
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label for="SelectedClassId">Class</label>
+                <select asp-for="SelectedClassId" asp-items="Model.Classes" class="form-control">
+                    <option value="">All</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label for="SelectedStudentId">Student</label>
+                <select asp-for="SelectedStudentId" asp-items="Model.Students" class="form-control">
+                    <option value="">All</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label for="SelectedSchoolYearId">School Year</label>
+                <select asp-for="SelectedSchoolYearId" asp-items="Model.SchoolYears" class="form-control">
+                    <option value="">All</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" id="filterButton">Filter</button>
+</form>
+
+<p>
+    <a asp-action="Create">Add New Mark</a>
+</p>
+
+<div id="marksTable">
+    @{
+        await Html.RenderPartialAsync("_MarksTable", Model);
+    }
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#filterButton').click(function () {
+                $.ajax({
+                    url: '@Url.Action("Filter", "Marks")',
+                    type: 'GET',
+                    data: $('#filterForm').serialize(),
+                    success: function (data) {
+                        $('#marksTable').html(data);
+                    },
+                    error: function () {
+                        alert('Error loading marks');
+                    }
+                });
+            });
+        });
+    </script>
+}

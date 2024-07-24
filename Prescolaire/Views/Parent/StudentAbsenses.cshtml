@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Prescolaire.Models.Absence>
+
+@{
+    ViewData["Title"] = "My Absences";
+    Layout = "_LayoutParent";
+}
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h2>My Absences</h2>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>School Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.AbsenceDate.ToShortDateString()</td>
+                            <td>@item.SchoolYear.Year</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

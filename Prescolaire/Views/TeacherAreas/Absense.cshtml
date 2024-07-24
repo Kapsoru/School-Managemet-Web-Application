@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Prescolaire.Models.Absence>
+@{
+    ViewData["Title"] = "Absences";
+    Layout = "_LayoutTeacher";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Date</th>
+            <th>School Year</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Student.FirstName @item.Student.LastName</td>
+                <td>@item.AbsenceDate.ToShortDateString()</td>
+                <td>@item.SchoolYear.Year</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

@@ -1,0 +1,56 @@
+﻿@model Prescolaire.Models.Teacher
+
+@{
+    ViewData["Title"] = "Teacher Profile";
+    Layout = "_LayoutTeacher";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Teacher Profile</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Personal Information
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>First Name:</strong> @Model.FirstName</li>
+                    <li class="list-group-item"><strong>Last Name:</strong> @Model.LastName</li>
+                    <li class="list-group-item"><strong>Gender:</strong> @Model.Gender</li>
+                    <li class="list-group-item"><strong>Date of Birth:</strong> @Model.DateOfBirth.ToShortDateString()</li>
+                    <li class="list-group-item"><strong>Email:</strong> @Model.Email</li>
+                    <li class="list-group-item"><strong>Phone Number:</strong> @Model.PhoneNumber</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Address Information
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Street:</strong> @Model.Street</li>
+                    <li class="list-group-item"><strong>City:</strong> @Model.City</li>
+                    <li class="list-group-item"><strong>Region:</strong> @Model.Region</li>
+                    <li class="list-group-item"><strong>Country:</strong> @Model.Country</li>
+                    <li class="list-group-item"><strong>Postal Code:</strong> @Model.PostalCode</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    Professional Information
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Subject:</strong> @Model.Subject?.SubjectName</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn btn-primary">Back to Dashboard</a>
+    </div>
+</div>

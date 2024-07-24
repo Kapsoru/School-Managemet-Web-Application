@@ -1,0 +1,36 @@
+﻿@model Prescolaire.ViewModel.RoleViewModel
+
+@{
+    ViewData["Title"] = "Adding New Role";
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-10 px-5">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+
+                <div class="form-group col-6">
+                    <label asp-for="RoleName" class="control-label">Role Name</label>
+                    <input asp-for="RoleName" class="form-control form-control-border" />
+                    <span asp-validation-for="RoleName" class="text-danger"></span>
+                </div>
+            </div>       
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

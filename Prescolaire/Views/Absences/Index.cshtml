@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Prescolaire.Models.Absence>
+
+@{
+    ViewData["Title"] = "Absences";
+}
+
+
+<p>
+    <a asp-action="Create">Add New Absence</a>
+</p>
+<table id="example1" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AbsenceDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SchoolYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student)
+            </th>
+            <td>
+               First Name
+            </td>
+            <td>
+                Last Name
+            </td>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AbsenceDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SchoolYear.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.StudentId)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.LastName)
+                </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AbsenceId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AbsenceId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AbsenceId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

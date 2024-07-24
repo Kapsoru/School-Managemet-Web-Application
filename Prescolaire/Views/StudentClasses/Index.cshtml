@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Prescolaire.Models.StudentClass>
+
+@{
+    ViewData["Title"] = "Attached Students To Classes";
+}
+
+
+<p>
+    <a asp-action="Create">Attach Student To Class</a>
+</p>
+<table id="example1" class="table table-bordered table-striped ">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Class)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student)
+            </th>
+            <td>
+                First Name
+            </td>
+            <td>
+                Last Name
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.SchoolYear)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Class.ClassName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.StudentId)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.LastName)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SchoolYear.Year)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StudentClass1">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StudentClass1">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StudentClass1">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

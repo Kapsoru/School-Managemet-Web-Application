@@ -1,0 +1,50 @@
+﻿@model Prescolaire.ViewModel.StudentMarksViewModel
+
+@{
+    ViewData["Title"] = "My Marks";
+    Layout = "_LayoutParent";
+}
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h2>My Marks</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>First Name:</strong> @Model.FirstName</p>
+                    <p><strong>Last Name:</strong> @Model.LastName</p>
+                    <p><strong>Email:</strong> @Model.Email</p>
+                    <p><strong>Date of Birth:</strong> @Model.DateOfBirth.ToShortDateString()</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Grade:</strong> @Model.Grade</p>
+                    <p><strong>Average Mark:</strong> @Model.AverageMark</p>
+                    <p><strong>Status:</strong> @(Model.IsPassed ? "Passed" : "Failed")</p>
+                </div>
+            </div>
+            <table class="table table-bordered table-striped mt-4">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Mark 1</th>
+                        <th>Mark 2</th>
+                        <th>Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var mark in Model.SubjectMarks)
+                    {
+                        <tr>
+                            <td>@mark.SubjectName</td>
+                            <td>@mark.Mark1</td>
+                            <td>@mark.Mark2</td>
+                            <td>@mark.AverageSubejectMark</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

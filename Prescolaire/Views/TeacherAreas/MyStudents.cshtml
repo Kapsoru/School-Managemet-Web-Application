@@ -1,0 +1,29 @@
+﻿@using Prescolaire.Models
+@model IEnumerable<Prescolaire.Models.StudentClass>
+
+@{
+    ViewData["Title"] = "My Students";
+    Layout = "_LayoutTeacher";
+}
+
+<h2>My Students</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Student.FirstName</td>
+                <td>@item.Student.LastName</td>
+                <td>@item.Student.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
